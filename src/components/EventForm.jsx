@@ -9,14 +9,12 @@ function EventForm({ onCreate }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+        if (!form.name.trim() || !form.location.trim()) {
+            alert("El nombre y la dirección son obligatorios");
+            return;
+        }
         onCreate(form);
-        
-        setForm({
-            name: "",
-            location: "",
-            category: ""
-        });
+        setForm({ name: "", location: "", category: "" });
     };
   
     return (
